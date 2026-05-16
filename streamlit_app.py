@@ -14,7 +14,10 @@ cnx = st.connection("snowflake")
 name_on_order = st.text_input("Name on Smoothie:")
 st.write("The name on your Smoothie will be:", name_on_order)
 session = cnx.session();
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+try:
+    my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+except Exception as e:
+    st.error(f"Error: {e}")
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
 ingredients_list = st.multiselect('Choose up to 5 ingredients:',my_dataframe,max_selections = 5 )
