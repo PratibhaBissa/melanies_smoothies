@@ -1,4 +1,5 @@
 import streamlit as st
+import requests 
 
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
 st.write("Choose the fruits you want in your custom Smoothie!")
@@ -24,8 +25,7 @@ if ingredients_list:
 
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
-        st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
-import requests  
+        st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅") 
     for fruit_choosen in ingredients_list:
         ingredients_string += fruit_choosen + ''
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")  
