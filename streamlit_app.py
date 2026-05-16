@@ -10,7 +10,7 @@ session = cnx.session()
 name_on_order = st.text_input("Name on Smoothie:")
 st.write("The name on your Smoothie will be:", name_on_order)
 
-my_dataframe = session.sql("SELECT FRUIT_NAME,SEARCH_ON FROM smoothies.public.fruit_options")\
+my_dataframe = session.sql("SELECT FRUIT_NAME,SEARCH_ON FROM smoothies.public.fruit_options")
 pd_df=my_dataframe.to_pandas()
 st.dataframe(pd_df)
 
