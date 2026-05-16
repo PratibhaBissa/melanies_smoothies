@@ -28,7 +28,7 @@ ingredients_list = st.multiselect('Choose up to 5 ingredients:', my_dataframe, m
 
 if ingredients_list:
    
-    ingredients_string = ' '.join(ingredients_list)
+    ingredients_string = ''.join(ingredients_list)
 
 
 
